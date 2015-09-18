@@ -9,8 +9,8 @@ describe('Pizza', function(){
     })
 
     it('returns a price for a pizza based on toppings, pizza_size, and quantity.', function() {
-        var testPizza = new Pizza ('veg', 'xl', '2')
-        var total_price = testPizza.getPrice('veg', 'xl', '2')
+        var testPizza = new Pizza ('meat', 'small', '3')
+        var total_price = testPizza.getPrice('meat', 'small', '3')
         expect(total_price).to.equal(30)
     })
 })

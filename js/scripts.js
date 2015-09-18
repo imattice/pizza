@@ -32,7 +32,7 @@ Pizza.prototype.getPrice = function(topping, pizza_size, quantity){
 
     if (pizza_size == 'small') {
         size_price = 8;
-    } else if (pizza_size == 'meduim') {
+    } else if (pizza_size == 'medium') {
         size_price = 10;
     } else if (pizza_size == 'large'){
         size_price = 12;
@@ -60,3 +60,24 @@ Pizza.prototype.getPrice = function(topping, pizza_size, quantity){
 
     return total_price;
 }
+
+
+//jQuery
+$(document).ready(function() {
+
+    $('div#reciept').hide();
+
+    $('form#pizza_order_form').submit(function(event){
+        event.preventDefault();
+        var new_topping = $('select#new_topping').val();
+        var new_size = $('select#new_size').val();
+        var new_quantity = $('input#new_quantity').val();
+        var newPizza = new Pizza (new_topping, new_size, new_quantity);
+        console.log(newPizza);
+        var total_price = newPizza.getPrice(new_topping, new_size, new_quantity)
+
+        $('span#total_price').text(total_price);
+        $('div#reciept').show();
+
+    })
+})
