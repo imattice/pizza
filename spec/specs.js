@@ -8,12 +8,21 @@ describe('Pizza', function(){
         expect(testPizza.quantity).to.equal('5');
     })
 
-    it('returns a price for a pizza based on toppings, pizza_size, and quantity.', function() {
-        var testPizza = new Pizza ('meat', 'small', '3')
-        var total_price = testPizza.getPrice('meat', 'small', '3')
+    it('returns a price for a meat pizza', function() {
+        var testPizza = new Pizza ('meat', 'small', '1')
+        var total_price = testPizza.getPrice()
         expect(total_price).to.equal(30)
     })
+
+    it('returns a price for a medium meat pizza ', function() {
+        var testPizza = new Pizza ('meat', 'medium', '1')
+        var total_price = testPizza.getPrice()
+        expect(total_price).to.equal(12)
+    })
+
+    it('returns a price for 400 medium meat pizzas', function() {
+        var testPizza = new Pizza ('meat', 'medium', '400')
+        var total_price = testPizza.getPrice()
+        expect(total_price).to.equal(4800
+    })
 })
-//create pizza protoype that gets price
-//create html page that accepts input
-//return price on html page
